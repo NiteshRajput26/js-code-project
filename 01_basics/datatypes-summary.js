@@ -50,3 +50,28 @@ console.log(id == anotherId);
 // Arrays  =>  object
 // Function  =>  function
 // Object  =>  object
+
+
+
+//*****************++++++++++++++++***********/
+//MEMORY
+//1. Stck(Primitive)  , 2. Heap(Non-Primitive)
+
+let myname = "Nitesh"
+
+let anothername = myname
+anothername = "nsrajput"
+
+console.log(myname);
+console.log(anothername);
+
+let userOne = {
+    email:"user@google.com",
+    upi: "userone@ybl"
+}
+
+let userTwo = userOne
+userTwo.email= "nitesh@google.com"
+
+console.log(userOne.email);
+console.log(userTwo.email)
