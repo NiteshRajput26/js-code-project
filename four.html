@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom  </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+ <!-- agr hme ek or list item add krna ho to usko hum parent or child ko append kr ke kr skte hai ya uske liye ek function bhi create kr skte hai  -->
+<script>
+    // how we can design this function 
+    // 1.list item create krenge
+    // 2. language ul ko select kr ke li js ko append krenge
+    function addlanguage(langName){
+      const li =  document.createElement('li');
+      li.innerHTML = `${langName}`
+      document.querySelector(`.language`).appendChild(li)
+    }
+    addlanguage("python")
+    addlanguage("typescript")
+    // iss method me optimization problem aata h kyonki pura tree traversal krna pdta hai
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        // appendChild se ek node create hoti hai
+        document.querySelector('.language').appendChild(li)
+    }  
+    addOptiLanguage('golang')
+
+
+    // Value Edit 
+    // querySelector values select krne ke liye use krte hai......
+    // innerHTML is an HTML element property that has two uses for web developers:
+    //  1) You can use it to get the internal HTML content of any HTML element as an HTML string.
+    //   2) You can also use it to set or change elements' innerHTML content.
+   const secondLang = document.querySelector("li:nth-child(2)")
+   console.log(secondLang);    // browser console pe o/p dikhega
+   //secondLang.innerHTML = 'Mojo'   optimized nhi hai
+   const newli = document.createElement('li')
+   newli.textContent = "Mojo"
+   secondLang.replaceWith(newli)
+
+   // edit using outerHTML
+   const firstLang = document.querySelector("li:first-child")
+   firstLang.outerHTML = '<li>NodeJs</li>'
+   // It can also be set to replace the element with nodes parsed from the given string
+
+   // Remove
+   const lastlang = document.querySelector("li:last-child")
+   lastlang.remove()
+</script>
+</html>
